@@ -6,6 +6,7 @@ import re
 
 FIRST_NAME = "^[A-Z]{1}[a-z]{2,}$"
 LAST_NAME = "^[A-Z]{1}[a-z]{2,}$"
+EMAIL_ADDRESS = "^[a-zA-z]{3}[0-9a-zA-Z\\.\\_\\-\\+]*@[a-z]*\\.(co|com.au|in|net|in|com.com|com|)$"
 
 
 class UserRegistration:
@@ -21,10 +22,10 @@ class UserRegistration:
         """
         if re.match(FIRST_NAME, fname_input):
             print("Valid first name")
-            return True
+            return "Happy"
         else:
             print("Invalid first name ")
-            return False
+            return "Sad"
 
     def last_name_validation(self,last_name_input):
         """
@@ -34,11 +35,18 @@ class UserRegistration:
         """
         if re.match(LAST_NAME, last_name_input):
             print("Valid last name")
-            return True
+            return "Happy"
         else:
             print("Invalid last name")
-            return False
+            return "Sad"
 
+    def email_validation(self, email_input):
+        if re.match(EMAIL_ADDRESS, email_input):
+            print("Valid Email")
+            return "Happy"
+        else:
+            print("Invalid Email ")
+            return "Sad"
 
 if __name__ == '__main__':
     user_reg = UserRegistration()
@@ -48,3 +56,7 @@ if __name__ == '__main__':
 
     last_name_input = input("Enter Last Name:")
     user_reg.last_name_validation(last_name_input)
+
+    emial_input = input("Enter email address")
+    user_reg.email_validation(emial_input)
+
